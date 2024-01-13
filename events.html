@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTS</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap:1em;
+        }
+        .firstchild,.secondchild,.thirdchild,.fouthchild, .eventlistner{
+            border: .05em solid yellowgreen;
+            width: 25em;
+            text-align: center;
+            text-transform: uppercase;
+            color: brown;
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+       }
+       a{
+        text-decoration: none;
+        color: blue;
+       }
+       #myp{
+        color:brown;
+        margin: 0;
+       }
+       .box{
+        background-color: blueviolet;
+        height: 25em;
+        width: 25em;
+        margin:0% 25%;
+        /* position: absolute; */
+       }
+       #innerbox{
+        background-color: yellow;
+        height: 12.5em;
+        width: 12.5em;
+        position: relative;
+        margin:6.9em;
+       }
+       #kevent{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 50em;
+      }
+      #myp{
+        width: 60em;
+        text-align: justify;
+      }
+    </style>
+</head>
+<body>
+    <h1>DIFFERENT EVENT STYLES</h1>
+    <div class="container">
+    <!-- FIRST WAY -->
+    <a href="#" onclick="alert('Hi I am awsome, But no one use me')"><div class="firstchild"><h2>simple inline alert</h2></div></a>
+    <!-- SECOND WAY -->
+    <a href="#" onclick="callingfn()"><div class="secondchild"><h2>by calling a function</h2></div></a>
+    <!-- THIRD WAY -->
+    <a href="#"><div class="thirdchild"><h2 id="thirdway">inline event</h2></div></a>
+    <a href="#"><div class="fouthchild"><h2 id="fourthway">event listeners</h2></div></a>
+    <!-- EVENT LISTNER -->
+    <h2 style="color: blueviolet;">EVENT OBJECT IS THE PARENT OF THE EVENT OBJECT</h2>
+    <a href="#"><div class="eventlistner"><h2 id="listner">EVENT LISTNER</h2></div></a>
+    <!-- MOUSE EVENTS -->
+    <h2 style="color: blueviolet;">MOUSE EVENT OBJECT</h2>
+    <p id="myp" onmousedown="mousedown()" onmouseup="mouseup()" >
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+     it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining 
+     essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
+     recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+
+<div class="box">
+    <div id="innerbox">
+    </div>
+</div>
+<div id="kevent">
+    <p style="text-align: center; font-weight: bold; color: brown;">A FUNCTION IS TRIGGERED WHEN THE USER IS PRESSING A KEY IN THE INPUT FIELD</p>
+    <INPUT type="text" onkeypress="keypress()" onkeydown="keydown()" onkeyup="keyup()">
+    <p id="keys"></p>
+</div>
+<div class="maindiv">
+    <div>
+        <label for="">YOUR NAME</label>
+        <input type="text" name="" id="ice"><br>
+        <label >CHOOSE A ICECREAM
+            <select name="icecream" id="icecream" onchange="selectele()">
+                <option value="">SELECT ONE</option>
+                <option value="chocolate">CHOCOLATE</option>
+                <option value="sardine">SARDINE</option>
+                <option value="vanilla">VANILLA</option>
+            </select>    
+        </label>
+        <div id="result"></div>
+    </div>
+</div>
+    <h1>TIMING BASED EVENTS</h1>
+    <div>
+        <p>WANT TO KNOW MY NAME</p>
+        <p id="showmyname"></p>
+        <br>
+        <button id="btn">CLICK HERE</button>
+    </div>
+    <div>
+        <p>wait for the alert</p>
+        <button onclick="myvar= setTimeout(myfunc,2000)">TRY IT</button>
+        <button onclick="clearTimeout(myvar)">STOP IT</button>
+    </div>
+    <div>
+        <p id="time">CAN YOU STOP ME WHEN I REACH 5</p>
+        <br>
+        <button id="btn1">CLICK HERE!!!!</button>
+        <button id="btn2">STOP</button>
+    </div>
+<script>
+    // second way
+        const callingfn=()=>{
+            alert('Most Common Way Of Writing Function');
+        }
+    // third way using ID
+        const thirdway=document.getElementById('thirdway');
+        thirdway.onclick=function() {
+            alert('Most Common Way Of Writing Function');
+        }
+        thirdway.onclick=function() {
+            console.log('Most Common Way Of Writing Function');
+        }
+        //here only the bottom function will be executed
+    // fourth way using QuerySelector
+        const fourthway=document.querySelector('#fourthway');
+        fourthway.addEventListener('click' , ()=>{
+            alert('I Love this way of writing functions');
+        })
+        fourthway.addEventListener('click' , ()=>{
+            console.log('I Love this way of writing functions');
+        })
+        //here both function will be executed
+    //listner
+        const listner= document.getElementById('listner');
+        const checkevent= ()=>{
+            alert('EVENT LISTNERS');
+            console.log(event);
+            console.log(event.target);
+            console.log(event.type);
+        }
+        listner.addEventListener('click',checkevent);
+
+    //MOUSE EVENTS
+        function mousedown(){
+            document.getElementById("myp").style.color="aqua";
+        }
+        function mouseup(){
+            document.getElementById("myp").style.color="red";
+        }
+        
+        const menter=document.getElementById('innerbox');
+
+        menter.addEventListener('mouseenter', ()=>{
+            menter.style.backgroundColor='aqua';
+        });
+
+        menter.addEventListener('mouseleave', ()=>{
+            menter.style.backgroundColor='yellow';
+        });
+    //KEYBOARD EVENTS
+        const keypress=()=>{
+            document.getElementById('keys').innerHTML=`you press ${event.key} and its code is ${event.code}`;
+        }
+
+        const keyup=()=>{
+            document.getElementById('keys').innerHTML=`key is down`;
+        }
+
+        const keydown=()=>{
+            document.getElementById('keys').innerHTML=`key is up`;
+        }
+
+        const selectele=()=>{
+            const inputchange=document.getElementById('ice').value;
+            const icecream=document.getElementById('icecream').value;
+            console.log(`${inputchange} and ${icecream}`);
+            result.innerHTML=`${inputchange} had selected ${icecream} flavour`;
+        }
+    //DIFFERENCE BETWEEN INLINE EVENT AND EVENT LISTNER
+    // addEventListner does not overwrite existing event handlers 
+    // whereas      onclick overrides any existing onclick = fn  event handlers.
+
+    // addEventListner does not work in Internet Explorer before version 9
+    //whereas       onclick works everytime.
+
+    //TIMING BASED EVENTS
+        //SETTIMEOUT
+        const myname=document.querySelector('#showmyname');
+        const btn=document.querySelector('#btn');
+        const showmyname=()=>{
+            myname.innerHTML="LOADING..........";
+            setTimeout(() => {
+                myname.innerHTML="SUNANDA SADHUKHA";
+            }, 1000);
+        }
+        btn.addEventListener('click', showmyname);
+
+        function myfunc(){
+            alert("HELLO")
+        }
+        //SETINTERVAL AND CLEARINTERVAL
+        const stopnum=document.querySelector('#time');
+        const btn1=document.querySelector('#btn1');
+        const btn2=document.querySelector('#btn2');
+        let num=0,timeref;
+        const showmyname1=()=>{
+            stopnum.innerHTML="LOADING..........";
+            timeref= setInterval(() => {
+                stopnum.innerHTML=`${num}`;
+                num++;
+            }, 1000);
+        }
+        btn1.addEventListener('click',showmyname1);
+        btn2.addEventListener('click',()=>{
+            clearInterval(timeref);
+        })
+        //settimeout calls after a few minute,second.
+        //setinterval is used when we need to call continuosly
+</script>
+</body>
+</html> 
