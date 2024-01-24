@@ -1,0 +1,69 @@
+<!-- //EVENT PROPAGATION
+    //It determines in which order the elements receive the event.
+    //Two ways of event propagation in the HTML DOM API, which an event occurs in an element inside another element, and both elements have registered a handle for that event. 
+    //CAPTURE PHASE
+        //Top to Bottom
+        //Going from the window to the event target phase
+    //BUBBLE PHASE
+        //Bottom to Top
+        //From the event target parent back to the window
+      //Target Phase
+        //It is the target phase
+//EVENT BUBBLING
+    //With event bubbling, the event is first captured and handled by the innermost element and then propagated to outer element
+//EVENT CAPTURING
+    //With event capturing, the event is first captured by the outermost element and propagated to the inner elements.
+    //Capturing also known as "trickling", helps in remembering the propagation order.
+//HIGHER ORDER FUNCTION
+    //function which takes another function as an argument
+//CALLBACK FUNCTION
+    //function which get passed as an argument to an another function to be called back -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abc</title>
+    <style>
+        .parentdiv{
+            height: 25em;
+            width: 25em;
+            background-color: aqua;
+            position: absolute;
+        }
+        .childiv{
+            position: relative;
+            background-color: yellow;
+            height: 12.5em;
+            width: 12.5em;
+            margin: 6.25em;
+        }
+    </style>
+</head>
+<body>
+    <div class="parentdiv" id="parentid">
+        <div class="childiv" id="childid"></div>
+    </div>
+    <script>
+        const parentid=document.getElementById('parentid');
+        const childid=document.getElementById('childid');
+        const parentcall=()=>{
+            alert(`parent div call`);
+        }
+        const childcall=()=>{
+            alert(`child div call`);
+            // event.stopPropagation();        //only for single alert
+        }
+        //by default event bubbling
+        parentid.addEventListener('click',parentcall,true);  //by default 3rd parameter is false for bubbling
+        childid.addEventListener('click',childcall,true);       //true for capture phase
+//AJAX: CALL API USING HTTP REQUEST ie GET AND POST
+//PROMISE: FETCH API    
+
+
+    </script>
+</body>
+</html>
+
+
