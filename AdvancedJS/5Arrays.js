@@ -64,8 +64,8 @@ var names=['rekha','suresh','mahesh','suresh'];  //array definition
     const count=months.unshift("Jan");
     console.log(months);
     console.log(count);
-//DELETE IN ARRAY
 
+//DELETE IN ARRAY
     //POP=DELETE FROM THE BEGINNING OF THE ARRAY    SINGLE OR MULTIPLE
     const months = ["Feb", "Mar", "Apr"];
     months.pop();
@@ -106,6 +106,7 @@ var names=['rekha','suresh','mahesh','suresh'];  //array definition
     else{
         console.log("NOT FOUND");
     }
+
 //MAP()=returns a new array containing the results of calling a function oln every element in this array
     const num=[5,3,9,8,1,0];
     let newnum=num.map((ele,index,arr)=>{
@@ -147,7 +148,7 @@ var names=['rekha','suresh','mahesh','suresh'];  //array definition
     })
     console.log(arrmul);    //[ 12, 16 ]
 
-//REDUCE= to reduce 3D or 2D array into 1D array
+//REDUCE()= to reduce 3D or 2D array into 1D array
     //takes four argument= ACCUMULATOR, CURRENT VALUE, CURRENT INDEX, SOURCE ARRAY
     let arr=[5,6,2];
     let arrsum=arr.reduce((accumulator,ele,index, arr)=>{
@@ -175,12 +176,58 @@ var names=['rekha','suresh','mahesh','suresh'];  //array definition
     })
     console.log(flatarr);
     //[ 1, 2, 3, 4, 5, 6 ]
+
+//Every()= it can be used to check if all of the values from an array return a truthy value when they are passed through a callback function.
+    const arr1=[[1,2,3],[4,5,6]];
+    const res=arr1.every(arr => Array.isArray(arr));
+    console.log(res);       //true
+
+//Join()= It can be used to join an array of items into a single string separated by a separator.
+    const fruit=["Apple","Mango","Lichi"];
+    const r= fruit.join('-');
+    console.log(r);
+        //Apple-Mango-Lichi
+    const fruit=["Apple","Mango","Lichi"];
+    const r= fruit.join(':');
+    console.log(r);
+        //Apple:Mango:Lichi
+
+//Some()= It can be used to check if at least one item from the array returns a truthy value when passed to a given callback.
+    const n=[1,2,3];
+    const res=n.some(gt);
+    function gt(a){
+    return a>3;
+    }
+    console.log(res);       //false
+
 //Spread Operator[ARRAY]
-const color=['red','blue','yellow'];
-const color1=['red','blue','yellow','green','pink'];
+    const color=['red','blue','yellow'];
+    const color1=['red','blue','yellow','green','pink'];
                     //OR
-const mycolor=[...color,'green','pink'];
-console.log(mycolor);           //[ 'red', 'blue', 'yellow', 'green', 'pink' ]
+    const mycolor=[...color,'green','pink'];
+    console.log(mycolor);           //[ 'red', 'blue', 'yellow', 'green', 'pink' ]
+
+//OPTIONAL CHAINING
+    // Optional Chaining is a feature in JavaScript that allows us to access properties of an object or elements of an array 
+    // without having to check whether the object or array is Null or undefined first.
+    // It is represented by the ?. operator and can be used to concisely access deeply nested properties without having to 
+    // write a long chain of if statement to check for null or undefined values
+        const user={
+        name:"ram",
+            age:30,
+            address:{
+                street:"main_street",
+                city:"Abc",
+                state:"D",
+                zip:560098,
+            },
+        }
+        console.log(user.address.city?.j?.y);       //undefined
+
+    // Optional chaining can also be used to access elements of an array in JavaScript. It works in a similar way 
+    // of accessing properties of an object but using the ?.[] operator instead of the ?. operator.
+        const user1=[{n:"Ram",a:20},{n:"Mohan",a:25}];
+        console.log(user1[3]?.n);                   //undefined
 
 // Array Destructuring
     //It is a expression that makes it possible to make values from arrays, or properties from objects, into distinct variables.
