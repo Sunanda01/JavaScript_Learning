@@ -25,11 +25,11 @@ user.then(function(data){
     createorder(cart,function(orderid){
         Payment(orderid,function(payinfo){
             showorder(payinfo,function(){
-                update balance();
+                balance();
             });
         });
     });
-    
+
     //The above code is written as shown below to avoid Invasion of Callback
     createorder(cart)
     .then(function (orderid){
