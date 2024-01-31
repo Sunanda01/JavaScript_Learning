@@ -33,13 +33,13 @@ wm.set(ob2,"Private data");
 Set  -> Collection of unique Data , Set is object Constructor
 
 var arr=[1,4,7,2,5,4];
-let objSet=new Set(arr);
-console.log(objSet);
+let objSet=new Set(arr); // another method --> let objSet=new Set("1,2,3");
+console.log(objSet); //Set(5) { 1, 4, 7, 2, 5 }
 
 objSet.add(value);//add value
 objSet.delete(value);//delete value
 objSet.clear();//clear
-objSet.has();//check
+objSet.has();//check -- return true and false
 
 
 
