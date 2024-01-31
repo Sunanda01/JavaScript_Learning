@@ -7,3 +7,4 @@ const tooglenavbar=()=>{
 };
 
 mobile_nav.addEventListener("click",()=>tooglenavbar());
+// classList= display all classes that are included with particular tag
