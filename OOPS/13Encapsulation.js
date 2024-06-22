@@ -31,6 +31,7 @@ class savingacc extends balanceacc{
     transactionlimit=2000;
     constructor(name,balance=0){
         super(name,balance);
+        console.log(this.#balance);        //ERROR
      }
 }
 class curracc extends balanceacc{
