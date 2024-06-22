@@ -31,7 +31,7 @@ class savingacc extends balanceacc{
     transactionlimit=2000;
     constructor(name,balance=0){
         super(name,balance);
-        console.log(this.#balance);        //ERROR
+        // console.log(this.#balance);        //ERROR
      }
 }
 class curracc extends balanceacc{
@@ -39,12 +39,17 @@ class curracc extends balanceacc{
     constructor(name,balance=0){
         super(name,balance);
     }
-    display(amount){
+
+    //PRIVATE METHOD
+    #display(amount){                        
         console.log('withdrawn amount is '+amount);
+    }
+    show(amount){
+        this.#display(amount);
     }
 }
 let a=new curracc('swapno',5000);
 console.log(a);
-a.display(10000);
+a.show(10000);
 let b=new savingacc('shubho',10000);
 console.log(b);
