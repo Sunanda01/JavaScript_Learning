@@ -25,3 +25,26 @@
     console.log(check);     //[Function: inf]
     console.log(check());       //Sum is 50
     console.dir(check);     //[Function: inf]
+
+
+function x(){
+    var a=7;
+    return function y(){
+        console.log(a);
+    }
+    a=100;
+    console.log("hello");
+}
+var z=x();
+z(); //7
+
+function x(){
+    var a=7;
+    function y(){
+        console.log(a);
+    }
+    a=100;
+    return y;
+}
+var z=x();
+z(); //100
