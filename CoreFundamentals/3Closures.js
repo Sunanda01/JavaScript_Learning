@@ -80,3 +80,18 @@ function outer(){
     return inner;
 }
 outer()();        //200
+
+//If we add more function the the inner fx can acess the variable and fx of its outest parent also.
+//We can also pass a parameter...
+function a(){
+    var x=20;
+    function b(d){
+        var y=30;
+        function c(){
+          console.log(x, y, d);
+        }
+        return c;
+    }
+    return b;
+}
+a()("hello")();        //20 30 hello
