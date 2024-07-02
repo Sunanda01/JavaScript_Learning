@@ -111,7 +111,8 @@ function a(){
 let y=500;
 a()("hello")();
 
-//In this case it would result 20 500 hello c() searches for the value of y in itz scope then finds in lexical evironment of parents if still not found the goes deep down in hierarchy and searches in Global Execution Context.
+//In this case it would result 20 500 hello c() searches for the value of y in itz scope then finds in lexical evironment of parents if still 
+// not found the goes deep down in hierarchy and searches in Global Execution Context.
 function a(){
     var x=20;
     function b(d){
