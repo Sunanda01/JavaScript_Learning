@@ -144,3 +144,26 @@ c1();    //2
 var c2=counter();    //Point to a new address
 c2();    //1
 c2();    //2
+
+function counter(){
+    let count=0;
+    //Function Constructor
+    this.incrementcount=function(){
+        count++;
+        console.log(count);
+        
+    }
+    this.decrementcount=function(){
+        count--;
+        console.log(count);
+        
+    }
+}
+var c1= new counter();
+c1.incrementcount();    //1
+c1.incrementcount();    //2
+c1.incrementcount();    //3
+c1.incrementcount();    //4
+c1.incrementcount();    //5
+c1.decrementcount();    //4
+c1.decrementcount();    //3
