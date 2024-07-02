@@ -127,3 +127,20 @@ function a(){
 let y=500;
 a()("hello")();
 
+//ADVANTAGES
+// CLOSURES = DATA ABSTRACTION + ENCAPSULATION
+function counter(){
+    let count=0;
+    return function incrementcount(){
+        count++;
+        console.log(count);
+    } 
+}
+// console.log(count);        //Display ReferenceError as counter is not accessible outside the function
+var c1=counter();    //Point to different address
+c1();    //1
+c1();    //2
+
+var c2=counter();    //Point to a new address
+c2();    //1
+c2();    //2
