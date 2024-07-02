@@ -58,3 +58,15 @@ function outer(){
     }
 }
 outer()();        //30
+
+//This also forms a closure
+function outer(){
+    
+    function inner(){
+        console.log(a);
+    }
+    var a=30;
+    return inner;
+}
+outer()();        //30
+//As closure in not dependent on the style of declaration. it binds function and lexical scope.
