@@ -38,6 +38,7 @@ function x(){
 var z=x();
 z(); //7
 
+
 function x(){
     var a=7;
     function y(){
@@ -48,3 +49,12 @@ function x(){
 }
 var z=x();
 z(); //100
+
+//DOUBLE PARENTHESIS
+function outer(){
+    var a=30;
+    return function inner(){
+        console.log(a);
+    }
+}
+outer()();        //30
