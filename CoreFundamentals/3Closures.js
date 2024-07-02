@@ -70,3 +70,13 @@ function outer(){
 }
 outer()();        //30
 //As closure in not dependent on the style of declaration. it binds function and lexical scope.
+
+//It also works with let and const
+function outer(){
+    function inner(){
+        console.log(a);
+    }
+    let a=200;
+    return inner;
+}
+outer()();        //200
