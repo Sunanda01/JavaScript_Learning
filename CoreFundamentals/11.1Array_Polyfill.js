@@ -11,7 +11,7 @@ Array.prototype.mymap=function(cb){
 //FILTER
 Array.prototype.myfilter=function(cb){
    let arr=[];
-   for (let i = 0; i < array.length; i++) {
+   for (let i = 0; i < this.length; i++) {
        if(cb(this[i],i,this)) arr.push(this[i]);            
    }
 return arr;
