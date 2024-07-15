@@ -167,3 +167,27 @@ c1.incrementcount();    //4
 c1.incrementcount();    //5
 c1.decrementcount();    //4
 c1.decrementcount();    //3
+
+function add(a){
+        return function (b){
+            return function (c){
+                return a+b+c;
+            }
+        }
+    }
+    let sum=add(2)(3)(6);
+    console.log(sum);
+
+    let userobj={
+        name:"rekha",
+        age:20,
+    }
+
+
+    function info(obj){
+        return function(detail){
+            return obj[detail];
+        }
+    }
+    let a=info(userobj);
+    console.log(a('name'));
